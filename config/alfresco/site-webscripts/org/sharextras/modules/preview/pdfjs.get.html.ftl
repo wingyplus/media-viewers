@@ -1,7 +1,7 @@
 <#-- This file is part of the Share Extras PdfJs Viewer project -->
 <#assign el=args.htmlid?html>
     <div id="${el}-controls" class="controls flat-button">
-      
+
       <div class="sidebarBtn">
           <button id="${el}-sidebarBtn" disabled="disabled">
             <img src="${url.context}/res/extras/components/preview/images/sidebar-show-16.png" align="top" height="16" title="${msg("button.sidebar")}" />
@@ -17,14 +17,14 @@
         <img src="${url.context}/res/components/images/forward-arrow-16.png" align="top" height="16"/>
         ${msg("button.next")}
       </button>
-    
+
       <input type="number" id="${el}-pageNumber" value="1" size="4" min="1" disabled="disabled" />
 
       <span>/</span>
       <span id="${el}-numPages" class="numPages">--</span>
 
       <div class="separator"></div>
-      
+
       <button id="${el}-zoomOut" title="${msg("button.zoomout")}" disabled="disabled">
         <img src="${url.context}/res/extras/components/preview/images/zoom-out.svg" align="top" height="16"/>
       </button>
@@ -50,7 +50,7 @@
       </select>
 
       <div class="separator"></div>
-      
+
       <span class="maximizebutton">
          <button id="${el}-fullpage" title="">
            <img src="${url.context}/res/components/documentlibrary/actions/default-16.png" align="top" height="16"/>
@@ -60,28 +60,30 @@
          <div class="separator"></div>
       </span>
 
+	  <#--
       <button id="${el}-download" title="${msg("button.download")}">
         <img src="${url.context}/res/components/documentlibrary/actions/document-download-16.png" align="top" height="16"/>
         ${msg("button.download")}
       </button>
+	  -->
 
       <span class="linkbutton">
          <button id="${el}-link" title="${msg("button.link")}">
            <img src="${url.context}/res/components/images/link-16.png" align="top" height="16"/>
          </button>
       </span>
-      
+
       <span class="searchBarToggle">
          <div class="separator"></div>
-         
+
          <button id="${el}-searchBarToggle" disabled="disabled">
            <img src="${url.context}/res/components/images/search-16.png" align="top" height="16"/>
            ${msg("button.search")}
          </button>
-      </span>    
-      
+      </span>
+
     </div>
-    
+
     <div id="${el}-searchDialog" class="searchDialog">
        <div class="hd"></div>
        <div class="bd">
@@ -92,9 +94,9 @@
                <input id="${el}-findInput" type="search" size="30">
             </span>
             <button id="${el}-findPrevious">
-              <img src="${url.context}/res/components/images/back-arrow.png" align="top" height="16" title="${msg("button.previoushit")}"/>           
+              <img src="${url.context}/res/components/images/back-arrow.png" align="top" height="16" title="${msg("button.previoushit")}"/>
             </button>
-      
+
             <button id="${el}-findNext">
               <img src="${url.context}/res/components/images/forward-arrow-16.png" align="top" height="16" title="${msg("button.nexthit")}"/>
             </button>
@@ -108,7 +110,7 @@
        </div>
        <div class="ft"></div>
     </div>
-    
+
     <div id="${el}-linkDialog" class="linkDialog">
         <div class="hd"></div>
         <div class="bd flat-button">

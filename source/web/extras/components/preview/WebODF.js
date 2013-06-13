@@ -45,7 +45,8 @@ Alfresco.WebPreview.prototype.Plugins.WebODF.prototype =
        * @type String
        * @default "500000"
        */
-      srcMaxSize: "500000"
+      // srcMaxSize: "500000"
+      srcMaxSize: "30760000"
    },
 
    /**
@@ -76,9 +77,9 @@ Alfresco.WebPreview.prototype.Plugins.WebODF.prototype =
          var msg = '';
          msg += this.wp.msg("Image.tooLargeFile", this.wp.options.name, Alfresco.util.formatFileSize(this.wp.options.size));
          msg += '<br/>';
-         msg += '<a class="theme-color-1" href="' + this.wp.getContentUrl(true) + '">';
-         msg += this.wp.msg("Image.downloadLargeFile");
-         msg += '</a>';
+         // msg += '<a class="theme-color-1" href="' + this.wp.getContentUrl(true) + '">';
+         // msg += this.wp.msg("Image.downloadLargeFile");
+         // msg += '</a>';
          msg += '<br/>';
          msg += '<a style="cursor: pointer;" class="theme-color-1" onclick="javascript: this.parentNode.parentNode.innerHTML = \'<img src=' + this.wp.getContentUrl(false) + '>\';">';
          msg += this.wp.msg("Image.viewLargeFile");
@@ -89,7 +90,7 @@ Alfresco.WebPreview.prototype.Plugins.WebODF.prototype =
       {
          //var src = this.attributes.src ? this.wp.getThumbnailUrl(this.attributes.src) : this.wp.getContentUrl();
          //return '<img src="' + src + '" alt="' + this.wp.options.name + '" title="' + this.wp.options.name + '"/>';
-         
+
          var me = this;
 
          var cEl = document.createElement("div");
@@ -99,17 +100,17 @@ Alfresco.WebPreview.prototype.Plugins.WebODF.prototype =
          Dom.addClass(pEl, "odf-preview-content");
          cEl.appendChild(pEl);
          this.wp.getPreviewerElement().appendChild(cEl);
-         
+
          // Library paths fix
          runtime.libraryPaths = function () {
              return [Alfresco.constants.URL_CONTEXT + "res/extras/modules/webodf/lib"];
          };
-         
+
          // File size detection method fix (API does not allow HEAD against content items)
          runtime.getFileSize = function (path, callback) {
             callback(parseInt(me.wp.options.size, 10));
          }
-         
+
          // Load the ODF canvas
          runtime.loadClass("odf.OdfCanvas");
 
@@ -117,11 +118,11 @@ Alfresco.WebPreview.prototype.Plugins.WebODF.prototype =
          var odfcanvas = new odf.OdfCanvas(pEl);
          var contentUrl = this.wp.getContentUrl();
          odfcanvas.load(contentUrl);
-         
+
          var msgEl = Dom.getElementsByClassName("message", "div", this.wp.getPreviewerElement(), function(el) {
             Dom.setStyle(el, "display", "none");
          });
-         
+
          // TODO Implement zooming, see http://stackoverflow.com/questions/2026294/zoom-css-javascript
          // TODO Implement maximised mode
       }
@@ -131,7 +132,7 @@ Alfresco.WebPreview.prototype.Plugins.WebODF.prototype =
 
 
 /**
- * WebODFPreview preview component. 
+ * WebODFPreview preview component.
  *
  * @namespace Alfresco
  * @class Alfresco.WebODFPreviewPreview
